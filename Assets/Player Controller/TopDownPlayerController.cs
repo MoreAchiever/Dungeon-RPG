@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TopDownPlayerController : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class TopDownPlayerController : MonoBehaviour
     public Transform Map3EnteryPos;
     public Transform Map4EnteryPos;
     public Transform Map1EnteryPos;
+
+    private bool Triggered_1 = false;
+    private bool Triggered_2 = false;
 
 
     [SerializeField] float speed = 5f;
@@ -32,6 +36,16 @@ public class TopDownPlayerController : MonoBehaviour
     {
         GetInput();
         SetAnimations();
+        if(Input.GetKeyDown("space") && Triggered_1)
+        { 
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyDown("space") && Triggered_2)
+        {
+            SceneManager.LoadScene(2);
+        }
+
+
     }
 
     private void GetInput()
@@ -88,6 +102,44 @@ public class TopDownPlayerController : MonoBehaviour
         {
             transform.position = Map1EnteryPos.position;
         }
+       /* else if (collision.gameObject.CompareTag("Slime1"))
+        {
+            SceneManager.LoadScene(1); //Ghost Enemy
+        }*/
+        /*else if (collision.gameObject.CompareTag("Slime2") && Input.GetKeyDown("space"))
+        {
+            SceneManager.LoadScene(2); //Scorpion enemy
+        }*/
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Slime1"))
+        {
+            Triggered_1 = true; //Ghost Enemy
+        }
+        else if (collision.gameObject.CompareTag("Slime2"))
+        {
+            Triggered_2 = true; //Scorpion enemy
+        }
+        else
+        {
+            Triggered_1 = false;
+            Triggered_2 = false;
+        }
+    }
+    
+     private void OnTriggerExit2D(Collider2D other)
+    {
+        // Destroy everything that leaves the trigger
+        if(other.gameObject.CompareTag("Slime1"))
+        {
+            Triggered_1 = false;
+        }
+
+        if (other.gameObject.CompareTag("Slime1"))
+        {
+            Triggered_2 = false;
+        }
     }
 }

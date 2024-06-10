@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/pixelArtScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/TurnBasedBattle.unity
+    guid: 4488f40800e646a46960bec09ad8d2fa
+  - enabled: 1
+    path: Assets/Scenes/TurnBasedBattle2.unity
+    guid: 98d17558e0e08bb48bd5b8122a82bd48
   m_configObjects: {}

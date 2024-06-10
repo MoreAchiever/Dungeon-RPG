@@ -8,6 +8,8 @@ TagManager:
   - Map3Entery
   - Map4Entery
   - Map1Entery
+  - Slime1
+  - Slime2
   layers:
   - Default
   - TransparentFX

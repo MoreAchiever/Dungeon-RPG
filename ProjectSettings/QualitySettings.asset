@@ -194,10 +194,10 @@ QualitySettings:
     Nintendo Switch: 4
     PS4: 4
     PS5: 4
-    Server: 0
+    Server: 4
     Stadia: 4
     Standalone: 4
-    WebGL: 3
+    WebGL: 4
     Windows Store Apps: 4
     XboxOne: 4
     iPhone: 2
